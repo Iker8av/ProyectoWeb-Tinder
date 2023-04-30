@@ -7,7 +7,7 @@ import { useParams, Link } from "react-router-dom";
 
 export default function Likes() {
 
-    const [data, setData] = React.useState([1,2,3,4,5])
+    const [data, setData] = React.useState([])
     const [like, setLike] = React.useState(0) // 0.- No Action | 1.- Like | 2.- Dislike //
     const [index, setIndex] = React.useState(null)
     const [playingAudio, setPlayingAudio] = React.useState(false)
@@ -32,13 +32,25 @@ export default function Likes() {
         setData([...newData])
     }
 
+     const loadData = async () => {
+        await axios.get("https://minireto-api.vercel.app/getUsers/").then((res) => {
+
+            setData([...res.data.data]);
+            console.log(res.data.data)
+        });
+    };
+
+    React.useEffect(() => {
+        loadData();
+    }, []);
+
   return (
     <div className='likes'>
         <h2>Likes</h2>
         <div className='grid-likes'>
-            {data.length > 0 ? data.map(item => {
+            {data.length > 0 ? data.map((item, index) => {
                 return <div onTransitionEnd={() => handleTransitionEnd(item)} className={`grid-card ${index === data.indexOf(item) && like !== 0 ? like === 1 ? 'right' : 'left' : ''}`} >
-                    <UserCard i={item} interactCard={interactCard} playingAudio={playingAudio} setPlayingAudio={setPlayingAudio}></UserCard>
+                    <UserCard data={item} i={index} interactCard={interactCard} playingAudio={playingAudio} setPlayingAudio={setPlayingAudio}></UserCard>
                 </div> 
             }) : <span className='message'>No profiles have been found.</span>}
         </div>
