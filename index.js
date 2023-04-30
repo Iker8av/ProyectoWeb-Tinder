@@ -12,13 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
-db.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
-  if (err) throw err
-
-  console.log('The solution is: ', rows[0].solution)
-})
-
+//RETURNS DATA FROM ALL THE USERS
 app.get('/getUsers', function (req, res, next) {
 let sql = "SELECT * FROM users";
   db.query(sql, (err, result) => {
@@ -27,6 +21,7 @@ let sql = "SELECT * FROM users";
   });
 })
 
+// RETURNS DATA FROM SPECIFIC USER, THE REQUEST NEEDS AN ID
 app.get('/getUsers/:id', function (req, res) {
   const user=req.params.id;
   let sql = "SELECT * FROM users WHERE USER_ID="+user+";";
@@ -36,6 +31,7 @@ app.get('/getUsers/:id', function (req, res) {
     });
   });
 
+// RETURNS ALL LIKED PROFILES DEPENDING FROM THE CURRENT USER
 app.get('/likes/:sender', function(req,res){
   const sender=req.params.sender;
   let sql="SELECT RECIEVER FROM likes WHERE SENDER="+sender+";";
@@ -45,6 +41,7 @@ app.get('/likes/:sender', function(req,res){
   });
 });
 
+// GENERATES A NEW LIKE IN THE DATABASE
 app.post('/like/:sender/:reciever', function(req,res){
   const sender=req.params.sender;
   const reciever=req.params.reciever;
@@ -54,6 +51,38 @@ app.post('/like/:sender/:reciever', function(req,res){
     res.send (result);
   });
 })
+
+// DELETES A LIKE
+app.delete('/delete/like/:sender/:reciever', function(req,res){
+  const sender=req.params.sender;
+  const reciever=req.params.reciever;
+
+  let sql="DELETE FROM likes WHERE SENDER='"+sender+"' AND RECIEVER='"+reciever+"';";
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send (result);
+  });
+})
+
+
+// UPDATES THE USER INFORMATION
+app.patch('/update/:id/:name/:age/:company/:looking/:mess', function(req,res){
+  const id=req.params.id;
+  const name=req.params.name;
+  const age=req.params.age;
+  const company=req.params.company;
+  const looking=req.params.looking;
+  const mess=req.params.mess;
+
+  let sql="UPDATE users SET USER_NAME='"+name+"', COMPANY='"+company+"', AGE="+age+", LOOKING_FOR='"+looking+"', MESSAGE='"+mess+"' WHERE USER_ID="+id+";";
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send (result);
+  });
+
+})
+
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
