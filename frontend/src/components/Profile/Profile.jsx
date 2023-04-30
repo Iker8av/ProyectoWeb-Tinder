@@ -4,6 +4,12 @@ import './Profile.css'
 export default function Profile() {
     const [edit, setEdit] = React.useState(false)
 
+    const [name, setName] = React.useState("Bowser")
+    const [age, setAge] = React.useState(30)
+    const [company, setCompany] = React.useState("Nintendo")
+    const [lookingFor, setLookingFor] = React.useState("Peach")
+    const [message, setMessage] = React.useState("Peach, you're so cool And with my star, we're gonna rule Peach, understand I'm gonna love you 'til the very end.")
+
     return (
         <div className='profile'>
             <header>
@@ -16,29 +22,29 @@ export default function Profile() {
                     <div className='profileInfo-header'>
                         <div>
                             <h3>Name:</h3>
-                            {edit ? <input type="text" id="name" name="name"/> : <h2>{"Name"} </h2> }
+                            {edit ? <input type="text" id="name" name="name"/> : <h2>{name} </h2> }
                         </div>
                         <div>
                             <h3>Age:</h3>
-                            {edit ? <input type="number" id="age" name="age"/> : <h2>{"Age"} </h2> }
+                            {edit ? <input type="number" id="age" name="age"/> : <h2>{age} </h2> }
                         </div>
                     </div>
                     <div className='profile-row'>
                         <h3>Company:</h3>
-                        {edit ? <input type="text" id="company" name="company"/> : <h2>{"Company"} </h2> }
+                        {edit ? <input type="text" id="company" name="company"/> : <h2>{company} </h2> }
                     </div>
                     <div className='profile-row'>
                         <h3>Looking For:</h3>
-                        {edit ? <input type="text" id="lookingFor" name="lookingFor"/> : <h2>{"Looking For.."} </h2> }
+                        {edit ? <input type="text" id="lookingFor" name="lookingFor"/> : <h2>{lookingFor} </h2> }
                     </div>
                     <div>
                         <h3>Message:</h3>
-                        {edit ? <textarea name="message" className='textarea'/> : <h2>{"Message..."} </h2> }
+                        {edit ? <textarea name="message" className='textarea'/> : <h2>{message} </h2> }
                     </div>
-                    <div>
+                    {/* <div>
                         <h3>Custom Audio:</h3>
                         <h2>{"File mp3..."} </h2>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

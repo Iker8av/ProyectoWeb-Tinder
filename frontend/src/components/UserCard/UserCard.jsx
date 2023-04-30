@@ -24,17 +24,19 @@ export default function UserCard({interactCard, i, playingAudio, setPlayingAudio
         <div className='UserCard' style={{"backgroundImage":`url(${require('../../img/peaches-bowser-1.webp')})`}}>
             <div className='usercard-container'>
                 <div className='row-buttons'>
-                    <button className='like-button' onClick={() => interactCard(2, i)}>Unlike</button>
-                    <button className='like-button' onClick={() => interactCard(1, i)}>Like</button>
+                    <button className='like-button' onClick={() => interactCard(2, i)}><img alt='dislike' src={require("../../img/dislike.png")}/></button>
+                    <button className='like-button' onClick={() => interactCard(1, i)}><img alt='like' src={require("../../img/heart.png")}/></button>
                 </div>
                 <div></div>
                 <div className='card-info'>
-                    <div className='card-header'>
-                        <h2 >{"Bowser"}, {i}</h2>
-                        <button className='play-button' onClick={() => start()}></button>
+                    <div className='cardInfo-container'>
+                        <div className='card-header'>
+                            <h2 >{"Bowser"}, {i}</h2>
+                            <button className='play-button' onClick={() => start()}></button>
+                        </div>
+                        <span>Looking For: {"Peach"}</span>
+                        <p>Peach, you're so cool And with my star, we're gonna rule Peach, understand I'm gonna love you 'til the very end.</p>
                     </div>
-                    <span>Looking For: {"Peach"}</span>
-                    <p>Peach, you're so cool And with my star, we're gonna rule Peach, understand I'm gonna love you 'til the very end.</p>
                 </div>
             </div>
         </div>
