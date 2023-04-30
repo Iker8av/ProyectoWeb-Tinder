@@ -10,6 +10,18 @@ export default function Profile() {
     const [lookingFor, setLookingFor] = React.useState("Peach")
     const [message, setMessage] = React.useState("Peach, you're so cool And with my star, we're gonna rule Peach, understand I'm gonna love you 'til the very end.")
 
+    const updateProfile = () => {
+        const body = {
+            "USER_ID": 24,
+            "USER_NAME": name,
+            "MESSAGE": message,
+            "LOOKING_FOR": lookingFor,
+            "COMPANY": company,
+            "AGE": age
+        }
+        //await
+    }
+
     return (
         <div className='profile'>
             <header>
