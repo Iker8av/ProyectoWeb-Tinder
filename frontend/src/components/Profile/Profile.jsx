@@ -51,7 +51,7 @@ export default function Profile() {
                     </div>
                     <div>
                         <h3>Message:</h3>
-                        {edit ? <textarea value={message} name="message" className='textarea'/> : <h2>{message} </h2> }
+                        {edit ? <textarea value={message} onChange={(e) => {setMessage(e.target.value)}} name="message" className='textarea'/> : <h2>{message} </h2> }
                     </div>
                     {/* <div>
                         <h3>Custom Audio:</h3>
