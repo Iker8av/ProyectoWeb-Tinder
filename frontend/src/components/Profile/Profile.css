@@ -72,3 +72,14 @@
     flex-direction: row;
     align-items: center;
 }
+
+.textarea {
+    width: 90%;
+    height: 100px;
+    font-size: 20px;
+    resize: none;
+}
+
+.profile input {
+    font-size: 20px;
+}

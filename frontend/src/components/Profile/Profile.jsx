@@ -16,28 +16,28 @@ export default function Profile() {
                     <div className='profileInfo-header'>
                         <div>
                             <h3>Name:</h3>
-                            {edit ? <input type="text" id="lname" name="lname"/> : <h2>{"Name"} </h2> }
+                            {edit ? <input type="text" id="name" name="name"/> : <h2>{"Name"} </h2> }
                         </div>
                         <div>
                             <h3>Age:</h3>
-                            <h2>{"Age"}</h2>
+                            {edit ? <input type="number" id="age" name="age"/> : <h2>{"Age"} </h2> }
                         </div>
                     </div>
                     <div className='profile-row'>
                         <h3>Company:</h3>
-                        <h2>{"Company"}</h2>
+                        {edit ? <input type="text" id="company" name="company"/> : <h2>{"Company"} </h2> }
                     </div>
                     <div className='profile-row'>
                         <h3>Looking For:</h3>
-                        <h2>{"Looking For"}</h2>
+                        {edit ? <input type="text" id="lookingFor" name="lookingFor"/> : <h2>{"Looking For.."} </h2> }
                     </div>
                     <div>
                         <h3>Message:</h3>
-                        <h2>{"Message..."}</h2>
+                        {edit ? <textarea name="message" className='textarea'/> : <h2>{"Message..."} </h2> }
                     </div>
                     <div>
                         <h3>Custom Audio:</h3>
-                        <h2>{"File.mp3"}</h2>
+                        <h2>{"File mp3..."} </h2>
                     </div>
                 </div>
             </div>
