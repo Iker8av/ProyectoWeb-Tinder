@@ -66,13 +66,13 @@ app.delete('/delete/like/:sender/:reciever', function(req,res){
 
 
 // UPDATES THE USER INFORMATION
-app.patch('/update/:id/:name/:age/:company/:looking/:mess', function(req,res){
-  const id=req.params.id;
-  const name=req.params.name;
-  const age=req.params.age;
-  const company=req.params.company;
-  const looking=req.params.looking;
-  const mess=req.params.mess;
+app.patch('/update', function(req,res){
+  const id=req.body.id;
+  const name=req.body.name;
+  const age=req.body.age;
+  const company=req.body.company;
+  const looking=req.body.looking;
+  const mess=req.body.mess;
 
   let sql="UPDATE users SET USER_NAME='"+name+"', COMPANY='"+company+"', AGE="+age+", LOOKING_FOR='"+looking+"', MESSAGE='"+mess+"' WHERE USER_ID="+id+";";
   db.query(sql, (err, result) => {
