@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useState, useEffect}  from 'react'
 import './Likes.css'
 import UserCard from '../UserCard/UserCard'
+import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+
 
 export default function Likes() {
+
     const [data, setData] = React.useState([1,2,3,4,5])
     const [like, setLike] = React.useState(0) // 0.- No Action | 1.- Like | 2.- Dislike //
     const [index, setIndex] = React.useState(null)

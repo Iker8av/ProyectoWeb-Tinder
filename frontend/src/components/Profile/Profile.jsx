@@ -17,7 +17,7 @@ export default function Profile() {
                 <button onClick={() => setEdit(!edit)}>Edit</button>
             </header>
             <div className='profile-right'>
-                <img src={require("../../img/peaches-bowser-1.webp")} alt="profile pic" className='profile-pic'/>
+                <img src={require('../../img/24.webp')} alt="profile pic" className='profile-pic'/>
                 <div className='profile-info'>
                     <div className='profileInfo-header'>
                         <div>

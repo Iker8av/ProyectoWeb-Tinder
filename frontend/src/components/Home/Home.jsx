@@ -3,7 +3,7 @@ import UserCard from '../UserCard/UserCard'
 import "./Home.css"
 
 export default function Home() {
-    const [data, setData] = React.useState([1,2,3,4,5])
+    const [data, setData] = React.useState([1,2,3,4,5,6,7,8,9,11,13,20])
     const [like, setLike] = React.useState(0) // 0.- No Action | 1.- Like | 2.- Dislike //
     const [transitionPerforming, setTransitionPerforming] = React.useState(false)
     const [playingAudio, setPlayingAudio] = React.useState(false)
