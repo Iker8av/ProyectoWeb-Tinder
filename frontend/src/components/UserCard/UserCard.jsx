@@ -34,7 +34,7 @@ export default function UserCard({interactCard, data, i, playingAudio, setPlayin
                     <div className='cardInfo-container'>
                         <div className='card-header'>
                         <h2 >{data.USER_NAME}</h2>
-                        <button className='play-button' onClick={() => start()}></button>
+                        {/* <button className='play-button' onClick={() => start()}></button> */}
                     </div>
                     <span>Looking For: {data.LOOKING_FOR}</span>
                     <p>{data.MESSAGE}</p>
