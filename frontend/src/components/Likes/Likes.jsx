@@ -33,10 +33,10 @@ export default function Likes() {
     }
 
      const loadData = async () => {
-        await axios.get("https://minireto-api.vercel.app/getUsers/").then((res) => {
+        await axios.get('https://minireto-api-a01566927-tecmx.vercel.app/likes/24').then((res) => {
 
-            setData([...res.data.data]);
-            console.log(res.data.data)
+            setData([...res.data]);
+            console.log(res.data)
         });
     };
 

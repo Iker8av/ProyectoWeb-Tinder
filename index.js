@@ -34,7 +34,7 @@ app.get('/getUsers/:id', function (req, res) {
 // RETURNS ALL LIKED PROFILES DEPENDING FROM THE CURRENT USER
 app.get('/likes/:sender', function(req,res){
   const sender=req.params.sender;
-  let sql="SELECT RECIEVER FROM likes WHERE SENDER="+sender+";";
+  let sql="SELECT  USER_ID, USER_NAME, COMPANY, AGE, LOOKING_FOR, MESSAGE FROM users INNER JOIN likes ON users.USER_ID = likes.RECIEVER AND likes.SENDER="+sender+";";
   db.query(sql, (err, result) => {
     if (err) throw err;
     res.send (result);
