@@ -31,4 +31,5 @@ Por último, el diseño de la página se realizó con CSS puro, integrando anima
 en cualquier pantalla en horizontal.
 La página almacena su información dentro de una base de datos relacional SQL. La base incluye la información de los usuarios al igual que de los likes.  
 El backend de la aplicación fue desarrollado con el entorno Node JS, el cual provee las herramientas necesarias para el desarrollo de un servidor y sus aplicaciones. 
+SmashPass vive en un servidor de Vercel, una plataforma de nube que provee los recursos necesarios para poder hacer un “deployment” de la aplicación. En este caso se cuenta con dos servidores distintos: uno que maneja la RestAPI y otro que presenta la aplicación al público. De tal manera es posible generar una conexión entre la aplicación y la base de datos sin necesidad de un servidor local.
 
