@@ -1,42 +1,39 @@
-import React, {useState, useEffect}  from 'react'
+import React from 'react'
 import './Likes.css'
 import UserCard from '../UserCard/UserCard'
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
 
 
 export default function Likes() {
 
     const [data, setData] = React.useState([])
     const [like, setLike] = React.useState(0) // 0.- No Action | 1.- Like | 2.- Dislike //
-    const [index, setIndex] = React.useState(null)
+    const [id, setID] = React.useState(null)
     const [playingAudio, setPlayingAudio] = React.useState(false)
 
-    const interactCard = (like = 0, item = null) => {
-        let newIndex = data.indexOf(item)
-
-        setIndex(newIndex)
+    const interactCard = (like = 0, item = null, id = 0) => {
+        setID(id)
         setLike(like)
+
+        axios.delete(`https://minireto-api.vercel.app/delete/like/24/${id}`)
     }
 
     const handleTransitionEnd = (item) => {
-        let newIndex = data.indexOf(item)
+        if (id === item.USER_ID ||like === 0) return;
 
-        if (index !== newIndex || like === 0) return;
-
-        setIndex(null)
         setLike(0)
-
-        const newData = data
-        newData.splice(newIndex, 1)
-        setData([...newData])
+        loadData()
+        setID(null)
     }
 
      const loadData = async () => {
-        await axios.get('https://minireto-api-a01566927-tecmx.vercel.app/likes/24').then((res) => {
+        await axios.get("https://minireto-api.vercel.app/likes/24").then((res) => {
 
-            setData([...res.data]);
-            console.log(res.data)
+            const newData = res.data.filter((item, index, self) => index === self.findIndex((t) => (
+                t.USER_ID === item.USER_ID && t.USER_NAME === item.USER_NAME
+            )))
+
+            setData([...newData]);
         });
     };
 

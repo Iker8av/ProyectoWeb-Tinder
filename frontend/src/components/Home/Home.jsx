@@ -43,7 +43,7 @@ export default function Home() {
         <div className='Home'>
             {data.length > 0 ? data.map((item, i) => {
                 return <div onTransitionEnd={() => handleTransitionEnd()} className={`Cards ${like !== 0 ? like === 1 ? 'right' : 'left' : ''}`} key={item.USER_ID}>
-                    <UserCard key={item.USER_ID} data={item} i={i+1} setPlayingAudio={setPlayingAudio} playingAudio={playingAudio} interactCard={interactCard} ></UserCard>
+                    <UserCard key={item.USER_ID} data={item} i={i+1} setPlayingAudio={setPlayingAudio} playingAudio={playingAudio} interactCard={interactCard} page={"Home"}></UserCard>
                 </div>
             }):  <span className='message'>No profiles have been found.</span>}
         </div>

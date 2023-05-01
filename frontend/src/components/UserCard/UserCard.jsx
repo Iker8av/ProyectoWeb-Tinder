@@ -1,7 +1,7 @@
 import React, {useState, useEffect}  from 'react'
 import './UserCard.css'
 
-export default function UserCard({interactCard, data, i, playingAudio, setPlayingAudio}) {
+export default function UserCard({interactCard, data, i, playingAudio, setPlayingAudio, page}) {
     let play = false
 
     let audio = new Audio(require("../../audios/Peaches.mp3"))
@@ -20,14 +20,12 @@ export default function UserCard({interactCard, data, i, playingAudio, setPlayin
         
     }
 
-    console.log(data)
-
     return (
             <div  className='UserCard' style={{"backgroundImage":`url(${require('../../img/'+data.USER_ID+'.webp')})`}}>
             <div className='usercard-container'>
                 <div className='row-buttons'>
-                    <button className='like-button' onClick={() => interactCard(2, i)}><img alt='dislike' src={require("../../img/dislike.png")}/></button>
-                    <button className='like-button' onClick={() => interactCard(1, i)}><img alt='like' src={require("../../img/heart.png")}/></button>
+                    <button className='like-button' onClick={() => interactCard(2, data, data.USER_ID)}><img alt='dislike' src={require("../../img/dislike.png")}/></button>
+                    {page === "Home" && <button className='like-button' onClick={() => interactCard(1, i)}><img alt='like' src={require("../../img/heart.png")}/></button>}
                 </div>
                 <div></div>
                 <div className='card-info'>
