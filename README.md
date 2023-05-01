@@ -1,4 +1,4 @@
-# ProyectoWeb-Tinder
+# MiniReto: SmashPass
 
 ¡¡Bienvenido a SmashPass!!  
 La nueva aplicación de citas  
