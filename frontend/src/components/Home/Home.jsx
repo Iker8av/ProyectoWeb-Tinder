@@ -14,6 +14,7 @@ export default function Home() {
         if (transitionPerforming) return;
         setLike(like)
         setTransitionPerforming(true)
+        if (like==1) axios.post('/like/24/'+data[0].USER_ID);
     }
 
     const handleTransitionEnd = () => {
@@ -31,7 +32,6 @@ export default function Home() {
         await axios.get("https://minireto-api.vercel.app/getUsers/").then((res) => {
 
             setData([...res.data.data]);
-            console.log(res.data.data)
         });
     };
 

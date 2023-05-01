@@ -1,25 +1,40 @@
 import React from 'react'
 import './Profile.css'
+import axios from "axios";
+
 
 export default function Profile() {
     const [edit, setEdit] = React.useState(false)
+    const [name, setName] = React.useState()
+    const [age, setAge] = React.useState()
+    const [company, setCompany] = React.useState()
+    const [lookingFor, setLookingFor] = React.useState()
+    const [message, setMessage] = React.useState()
 
-    const [name, setName] = React.useState("Bowser")
-    const [age, setAge] = React.useState(30)
-    const [company, setCompany] = React.useState("Nintendo")
-    const [lookingFor, setLookingFor] = React.useState("Peach")
-    const [message, setMessage] = React.useState("Peach, you're so cool And with my star, we're gonna rule Peach, understand I'm gonna love you 'til the very end.")
+    const loadData = async () => {
+        await axios.get("https://minireto-api-a01566927-tecmx.vercel.app/getUsers/24").then((res) => {
+            setName([res.data[0].USER_NAME]);
+            setAge([res.data[0].AGE]);
+            setCompany([res.data[0].COMPANY]);
+            setMessage([res.data[0].MESSAGE]);
+            setLookingFor([res.data[0].LOOKING_FOR]);
+        });
+    };
+
+    React.useEffect(() => {
+        loadData();
+    }, []);
 
     const updateProfile = () => {
         const body = {
-            "USER_ID": 24,
-            "USER_NAME": name,
-            "MESSAGE": message,
-            "LOOKING_FOR": lookingFor,
-            "COMPANY": company,
-            "AGE": age
+            "id": 24,
+            "name": name,
+            "mess": message,
+            "looking": lookingFor,
+            "company": company,
+            "age": age
         }
-        //await
+        const resp = axios.patch('https://minireto-api-a01566927-tecmx.vercel.app/update',body);
     }
 
     return (
