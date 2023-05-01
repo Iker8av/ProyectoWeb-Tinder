@@ -22,14 +22,13 @@ Puedes hacerlo con el botón de eliminar:
 
 Genera tu perfil y comienza tu vida de citas con SmashPass  :)
 <img width="744" alt="image" src="https://user-images.githubusercontent.com/99361062/235405221-6d1e0904-3eed-4499-a24f-100781491be1.png">
-
-
-Dentro del código FrontEnd de nuestra App, hicimos uso de React para la construcción de nuestra Webapp, dividimos cada página en un componente distinto, esto para hacer uso de “Routes” o “Rutas” para la navegación de usuario, para las tarjetas interactivas realizamos un componentes por separado e   
-independiente, esto para que pueda ser reutilizado y personalizado de acuerdo a las necesidades de la página. En cuanto a la conexión entre FrontEnd o BackEnd, hicimos uso de Axios para conectar los endpoints y realizar las “Promesas” o “Promises” y así obtener  
-la información deseada de la base de datos.  
-Por último, el diseño de la página se realizó con CSS puro, integrando animaciones y transiciones personalizadas por nuestro equipo y que sea amigable   
-en cualquier pantalla en horizontal.
+  
+  
 La página almacena su información dentro de una base de datos relacional SQL. La base incluye la información de los usuarios al igual que de los likes.  
 El backend de la aplicación fue desarrollado con el entorno Node JS, el cual provee las herramientas necesarias para el desarrollo de un servidor y sus aplicaciones. 
-SmashPass vive en un servidor de Vercel, una plataforma de nube que provee los recursos necesarios para poder hacer un “deployment” de la aplicación. En este caso se cuenta con dos servidores distintos: uno que maneja la RestAPI y otro que presenta la aplicación al público. De tal manera es posible generar una conexión entre la aplicación y la base de datos sin necesidad de un servidor local.
+SmashPass vive en un servidor de Vercel, una plataforma de nube que provee los recursos necesarios para poder hacer un “deployment” de la aplicación. En este caso se cuenta con dos servidores distintos: uno que maneja la RestAPI y otro que presenta la aplicación al público. De tal manera es posible generar una conexión entre la aplicación y la base de datos sin necesidad de un servidor local.  
+Por último, el diseño de la página se realizó con CSS puro, integrando animaciones y transiciones personalizadas por nuestro equipo y que sea amigable en cualquier pantalla en horizontal.  
+
+<img width="270" alt="image" src="https://user-images.githubusercontent.com/99361062/235405900-94485803-0c94-4cd0-95bb-9980ba7c4c07.png">
+
 
