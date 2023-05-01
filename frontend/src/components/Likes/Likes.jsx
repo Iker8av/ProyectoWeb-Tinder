@@ -15,7 +15,7 @@ export default function Likes() {
         setID(id)
         setLike(like)
 
-        axios.delete(`http://localhost:3001/delete/like/24/${id}`)
+        axios.delete(`https://minireto-api.vercel.app/delete/like/24/${id}`)
     }
 
     const handleTransitionEnd = (item) => {
@@ -27,7 +27,7 @@ export default function Likes() {
     }
 
      const loadData = async () => {
-        await axios.get("http://localhost:3001/likes/24").then((res) => {
+        await axios.get("https://minireto-api.vercel.app/likes/24").then((res) => {
 
             const newData = res.data.filter((item, index, self) => index === self.findIndex((t) => (
                 t.USER_ID === item.USER_ID && t.USER_NAME === item.USER_NAME

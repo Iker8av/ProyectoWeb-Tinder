@@ -7,8 +7,6 @@ const bodyParser = require("body-parser")
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const db = mysql.createConnection('mysql://k4wtbksth6x0znhuyadg:pscale_pw_jEUTkRw3iICoA288sbSnRgmT92I3OwiBNntNHFnYvQU@aws.connect.psdb.cloud/smashpass?ssl={"rejectUnauthorized":true}');
-
 app.use(express.json())
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
